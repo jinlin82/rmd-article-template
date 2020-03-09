@@ -37,7 +37,7 @@ Sys.setlocale("LC_ALL", "Chinese")
 **TODO**
 
 - [x] 表格如何输出
-- [x] Bib文件如何整理
+- [ ] Bib文件如何整理
 
 
 # 使用说明
