@@ -14,3 +14,25 @@
 1. 在vscode中打开项目;
 2. 打开项目的rmd文件，按下快捷键`ctrl+p`,在弹出的窗口中输入`task rmd`,可以选择rmd-html生成html文件，
 选择`rmd-pdf`生成pdf文件，选择`rmd-beamer`和`rmd-pdf`生成pdf文件，选择`rmd-doc`生成word文档。
+
+# rmd-template.rmd相关说明
+
+1. rmd-template.rmd文档名称`rmd-template`可自行修改
+2. 在rmd-template.rmd中,`title`,`author`,`date`,`institute`冒号后的内容可自行修改。
+3. 从`TODO`到`## 使用方法`可删除，使用rmd格式编辑文档内容。
+4. 文中其他内容均为格式设计不要随意更改。
+5. 文末如下的最后两行不要更改，始终放在文末，通过编辑文件夹中`Bibfile.bib`插入参考文献。
+   ```
+   # 参考文献
+   [//]: # (\bibliography{Bibfile})
+   ```
+
+# rmd生成幻灯片beamer内容相关说明
+
+1. 选择`rmd-beamer`生成了5个文件，分别是`rmd-template_beamer.pdf`、`rmd-template_beamer.log`、`rmd-template_beamer.tex`、`rmd-template.py`、`rmd-template.R`,其中`rmd-template_beamer.pdf`是我们所需要的幻灯片内容。
+2. 在rmd-template.rmd中,`institute: 中南财经政法大学统计与数学学院`只在幻灯片中显示。`classoption: "aspectratio=1610"`，1610 是幻灯片的长宽比例，有1610,169,43等选择，调整幻灯片长宽。
+3. 关于幻灯片中邮箱和右下角图标logo的修改：
+   - 修改图标：`znufelogo.jpg`是幻灯片右下角的图标，可更换为其他jpg图片。打开`beamer-header.tex`,将第二行最后`{./znufelogo.jpg}`中的`znufelogo`改为需要替换的jpg图片名称,需替换的jpg图片要放在当前文件夹中。
+   - 修改邮箱：打开`beamer-header.tex`,第一行将两个`某某`修改为文章作者名,将`xxxx@zuel.edu.cn`修改为自己的邮箱
+   - 打开`_output.yml`,第47行取消注释`in_header: ./beamer-header.tex`。
+   - 做出以上修改后，运行`rmd-beamer`,生成的幻灯片中邮箱和图标logo已经修改。
