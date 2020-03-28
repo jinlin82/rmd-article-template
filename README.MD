@@ -4,7 +4,12 @@
 - [RMD-ARTICLE-TEMPLATE介绍](#rmd-article-template介绍)
     - [项目文件结构](#项目文件结构)
 - [使用方法](#使用方法)
-- [vscode生成文档步骤](#vscode生成文档步骤)
+    - [克隆项目及设置](#克隆项目及设置)
+    - [RMD文件在 Vscode 中编译步骤](#rmd文件在-vscode-中编译步骤)
+        - [软件要求](#软件要求)
+        - [操作步骤](#操作步骤)
+        - [常见错误的原因及解决方法](#常见错误的原因及解决方法)
+        - [如何运行 Rmarkdown 中的 python 代码](#如何运行-rmarkdown-中的-python-代码)
 - [rmd-template.rmd相关说明](#rmd-templatermd相关说明)
 - [rmd生成幻灯片beamer内容相关说明](#rmd生成幻灯片beamer内容相关说明)
 
@@ -56,6 +61,8 @@
 
 # 使用方法
 
+## 克隆项目及设置
+
 1. 克隆项目`rmd-article-template`到worktools;
 2. 将5个bat文件:`rmd-html.bat`,`rmd-doc.bat`,`rmd-pdf.bat`,`rmd-beamer.bat`,`bookdown-pdf.bat`,5个R文件:`rmd-html.R`,`rmd-doc.R`,`rmd-pdf.R`,`rmd-beamer.R`,`bookdown-pdf.R`,以及`rmdnew.bat`文件放入worktools下的bat文件夹中。
 3. 首先在bat文件夹中复制5个bat文件:`rmd-html.bat`,`rmd-doc.bat`,`rmd-pdf.bat`,`rmd-beamer.bat`,`bookdown-pdf.bat`。
@@ -63,13 +70,65 @@
 右键点击Sendto文件夹空白处，选择'粘贴快捷方式',将复制好的5个bat文件以快捷方式的方式放到SendTo文件夹。
 最后找到项目的rmd文件，点击右键后选择发送到相应的bat文件,即可生成相应格式的文档。
    
-**注**：以上步骤完成有两个确保，即Ｒ程序环境变量(`C:\Worktools\R\R-3.5.1\bin\x64`)和worktools的bat文件环境变量(`C:\Worktools\bat`)都要设置成功。
+**注**：以上步骤完成有两个确保，即Ｒ程序环境变量
+(`C:\Worktools\R\R-3.5.1\bin\x64`)和worktools的bat文件环境变量
+(`C:\Worktools\bat`)都要设置成功。
 
-# vscode生成文档步骤
+## RMD文件在 Vscode 中编译步骤
 
-1. 在vscode中打开项目;
-2. 打开项目的rmd文件，按下快捷键`ctrl+p`,在弹出的窗口中输入`task rmd`,可以选择rmd-html生成html文件，
-选择`rmd-pdf`生成pdf文件，选择`rmd-beamer`和`rmd-pdf`生成pdf文件，选择`rmd-doc`生成word文档。
+**注意**: 下面操作要频繁修改增加环境变量，关于环境变量的操作可以参考[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95)
+
+### 软件要求
+1. `pandoc`:下载并安装 `anaconda`，安装时勾选那两个添加环境变量的选项，并且添加
+   环境变量 `C:\Anaconda3\Scripts`，如果 `anaconda`装在其他盘将 `C` 改成相应盘；
+   在`cmd` 中运行 `pandoc -v` ，如果没有出现错误则说明安装成功。
+2. R：在
+   `https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe`
+   下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
+   根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，然后在`cmd` 中运
+   行 `r` ，若不出错则安装成功。
+3. R packages: 在 cmd 中分别运行 `install.packages('knitr')` ，
+   `install.packages('rmarkdown')` ，`install.packages('bookdown')` ，
+   `install.packages('reticulate')` 四条代码，运行成功之后再分别运行
+   `library(knitr)` ， `library(rmarkdown)` ，`library(bookdown)`，
+   `library(reticulate)` ，如果都加载成功说明已安装好。
+4. 在生成 `html` 文件时，要把自己写的 `rmd` 文件与 `rmd-html.bat` ，`rmd-html.R`
+   两个文件放在同一个文件夹。
+
+### 操作步骤
+1. 右键点击需要的文件夹，选择 `Open Folder as VS Code Project` 来打开，没有配置
+   好的，可以直接打开Vscode，点击左上角的`文件(F)`，然后选择`打开文件夹`，找到需
+   要的文件夹，点击`选择文件夹`即可打开为VSCode项目。可以根据vscode底部颜色来判
+   断打开的是不是文件夹，若底部为浅蓝色，则表明打开的是文件夹，若底部为紫色，则
+   打开的是单个文件，不能生成html，需要按照上面的步骤打开文件夹才能生成html。
+
+2. 在打开的rmd文件中按下快捷键`Ctrl+Shift+P`，输入 `run task`，选择第1条`Tasks：
+   Run Task`，然后点击`rmd-html`即可生成html文件。选择`rmd-pdf`生成pdf文件，选择
+   `rmd-beamer`和`rmd-pdf`生成pdf文件，选择`rmd-doc`生成word文档。
+   
+### 常见错误的原因及解决方法
+
+**注意：** 1. 以下解决方法必须**重启vscode**才能发挥作用; 2. 文件路径必须**改成自己的文件路径**
+
+1. Vscode 中 run task 没有出现下拉任务
+2. 找不到 bat 文件
+3. 找不到 Rscript 程序
+4. 找不到 knitr 等包
+5. 找不到 pandoc 程序
+6. 找不到 pandoc crossref 程序
+7. 找不到 python 或其 package
+8. 出现 qt 错误， python 图形出不来
+9. 不能生成 pdf 和 beamer
+10. pdf 文件中中文字符乱码
+
+### 如何运行 Rmarkdown 中的 python 代码
+1. 按`ctrl+K M`,在上方弹出的框中输入`python`,然后回车或者点击下方出现的`python`
+   栏，就切换到了python语言模式，光标放在python代码块所在的行，按`shift+enter`,
+   即可运行该行python代码。
+2. 运行完python代码后，想要回到Rmarkdown语言模式，同样是按`ctrl+K M`，在上方弹出
+   的框中输入`Rmarkdown`,然后回车或者点击下方出现的`R Markdown`栏，就切换回了
+   Rmarkdown语言模式。 
+
 
 # rmd-template.rmd相关说明
 
