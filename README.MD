@@ -158,7 +158,7 @@
    - 解决方法：在 `CMD` 中运行 `setenv -ua QT_QPA_PLATFORM_PLUGIN_PATH C:\Anaconda3\Library\plugins\platforms`
 9. 不能生成 `pdf` 和 `beamer`
    - 原因： 没有安装 `latex` 软件或者没有加入环境变量
-   - 测试方法： `CMD` 中输入 `xelatex` 则表明 `latex` 设置成功
+   - 测试方法： `CMD` 中输入 `xelatex` 没有出现错误则表明 `latex` 设置成功
    - 解决方法： 安装最新版 `Latex` 发行版并加入到 `PATH` 环境变量中，可安装
      `TexLive`(安装文件3.3G，安装需要约6G空间)，
      下载地址：https://mirrors.tuna.tsinghua.edu.cn/ctan/systems/texlive/Images/texlive2019.iso
