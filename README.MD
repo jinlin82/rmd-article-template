@@ -87,7 +87,7 @@
    下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
    根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，然后在`cmd` 中运
    行 `r` ，若不出错则安装成功。
-3. R packages: 在 cmd 中分别运行 `install.packages('knitr')` ，
+3. R packages: 在 `cmd` 中运行 `R`后再分别运行 `install.packages('knitr')` ，
    `install.packages('rmarkdown')` ，`install.packages('bookdown')` ，
    `install.packages('reticulate')` 四条代码，运行成功之后再分别运行
    `library(knitr)` ， `library(rmarkdown)` ，`library(bookdown)`，
@@ -110,21 +110,49 @@
 
 **注意：** 
 
-- **以下解决方法必须先设置好环境变量修改方法一：使用命令行，具体可以参考**[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95).
-- 以下解决方法必须**重启vscode**才能发挥作用; 
-- 文件路径必须**改成自己的文件路径**; 
+1. **以下解决方法必须先设置好环境变量修改方法一：使用命令行，具体可以参考**[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95).
+2. 以下解决方法必须**重启vscode**才能发挥作用; 
+3. 文件路径必须**改成自己的文件路径**; 
 
-1. Vscode 中 run task 没有出现下拉任务
-2. 找不到 bat 文件
-3. 找不到 Rscript 程序
-4. 找不到 knitr 等包
-5. 找不到 pandoc 程序
-6. 找不到 pandoc crossref 程序
-7. 找不到 python 或其 package
-8. 出现 QT 错误， python 图形出不来
-   - 在 `CMD` 中运行 `setenv -ua QT_QPA_PLATFORM_PLUGIN_PATH C:\Anaconda3\Library\plugins\platforms`
-9. 不能生成 pdf 和 beamer
-10. pdf 文件中中文字符乱码
+**常见错误**
+
+1. `Vscode` 中 `run task` 没有出现下拉任务
+   - `Vscode`没有以项目形式打开文件夹，打开的是单个文件
+   - 用`Vscode`打开文件夹，而不是直接打开单个文件
+2. 找不到 `bat` 文件
+   - 原因：没有用`Vscode`打开包含`Rmd`文件的文件夹，可能打开的是其上层文件夹
+   - 解决方法：用`Vscode`打开包含`Rmd`文件的文件夹
+3. 找不到 `Rscript` 程序
+   - 原因： 没有安装`R`软件或者没有加入到 `PATH` 环境变量中
+   - 解决方法： 安装`R`并把`C:\Worktools\R\R-3.5.3\bin\x64` 文件夹加入到 `PATH` 环境变量中.
+4. 找不到 `knitr` 等包
+   - 原因： `R` 中相关包没有安装好
+   - 解决方法： `R`中安装相关包，具体见上面软件要求的第3条.
+5. 找不到 `pandoc` 程序
+   - 原因：没有`pandoc.exe`或者没有加入到 `PATH` 环境变量中
+   - 解决方法：安装`Anaconda`并加入到 `PATH` 环境变量中，`Anaconda`中`pandoc.exe`的位
+     置在 `C:\Anaconda3\Scripts` 文件夹中，把该文件夹加入到 `PATH` 环境变量中.
+6. 找不到 `pandoc crossref` 程序
+   - 原因： 处理参考文献需要 `pandoc-crossref.exe` 程序，系统中没有该程序
+   - 解决方法： 下载(下载地址：链接：
+     https://pan.baidu.com/s/1mvRjqJKboirDaaR0icrNRQ 提取码：q7en)解压后把
+     `pandoc-crossref.exe` 放入到和 上面第5步中的`pandoc.exe` 同一文件夹中
+7. 找不到 `python` 或其 `package`
+   - 原因： `R`的 `reticulate` 包找不到 `Anaconda`的`python`程序
+   - 解决方法： 在 `CMD` 中运行 `setenv -ua  RETICULATE_PYTHON C:\Anaconda3\python.exe`
+8. 出现 `QT` 错误， `python` 图形出不来
+   - 原因：操作系统中装有其他 `QT platforms`(特别是onedrive软件)，导致` python` 不能
+     使用自带的 `QT platform`
+   - 解决方法：在 `CMD` 中运行 `setenv -ua QT_QPA_PLATFORM_PLUGIN_PATH C:\Anaconda3\Library\plugins\platforms`
+9. 不能生成 `pdf` 和 `beamer`
+   - 原因： 没有安装 `latex` 软件或者没有加入环境变量
+   - 测试方法： `CMD` 中输入 `xelatex` 则表明 `latex` 设置成功
+   - 解决方法： 安装最新版 `Latex` 发行版并加入到 `PATH` 环境变量中，可安装
+     `TexLive`(安装文件3.3G，安装需要约6G空间)，
+     下载地址：https://mirrors.tuna.tsinghua.edu.cn/ctan/systems/texlive/Images/texlive2019.iso
+10. `pdf` 文件中中文字符乱码
+	- 原因： 可能字体问题或 `Latex` 不是新版原因
+	- 解决方法：安装新版 `Latex`，如上面`TexLive`
 
 ### 如何运行 Rmarkdown 中的 python 代码
 1. 按`ctrl+K M`,在上方弹出的框中输入`python`,然后回车或者点击下方出现的`python`
