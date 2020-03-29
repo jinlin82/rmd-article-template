@@ -108,7 +108,11 @@
    
 ### 常见错误的原因及解决方法
 
-**注意：** 1. **以下解决方法必须先设置好环境变量修改方法一：使用命令行，具体可以参考**[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95).2. 以下解决方法必须**重启vscode**才能发挥作用; 3. 文件路径必须**改成自己的文件路径**; 
+**注意：** 
+
+- **以下解决方法必须先设置好环境变量修改方法一：使用命令行，具体可以参考**[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95).
+- 以下解决方法必须**重启vscode**才能发挥作用; 
+- 文件路径必须**改成自己的文件路径**; 
 
 1. Vscode 中 run task 没有出现下拉任务
 2. 找不到 bat 文件
