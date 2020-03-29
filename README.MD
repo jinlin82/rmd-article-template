@@ -108,17 +108,29 @@
    
 ### 常见错误的原因及解决方法
 
+**常见错误**
+1. `Vscode` 中运行 `run task` 没有出现下拉任务
+2. 找不到 `bat` 文件
+3. 找不到 `Rscript` 程序
+4. 找不到 `knitr` 等包
+5. 找不到 `pandoc` 程序
+6. 找不到 `pandoc crossref` 程序
+7. 找不到 `python` 或其 `package`
+8. 出现 `QT` 错误， `python` 图形出不来
+9. 不能生成 `pdf` 和 `beamer`
+10. `pdf` 文件中中文字符乱码
+
 **注意：** 
 
 1. **以下解决方法必须先设置好环境变量修改方法一：使用命令行，具体可以参考**[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95).
 2. 以下解决方法必须**重启vscode**才能发挥作用; 
 3. 文件路径必须**改成自己的文件路径**; 
 
-**常见错误**
+**常见错误原因及解决方法**
 
-1. `Vscode` 中 `run task` 没有出现下拉任务
-   - `Vscode`没有以项目形式打开文件夹，打开的是单个文件
-   - 用`Vscode`打开文件夹，而不是直接打开单个文件
+1. `Vscode` 中运行 `run task` 没有出现下拉任务
+   - 原因: `Vscode`没有以项目形式打开文件夹，打开的是单个文件
+   - 解决方法: 用`Vscode`打开文件夹，而不是直接打开单个文件
 2. 找不到 `bat` 文件
    - 原因：没有用`Vscode`打开包含`Rmd`文件的文件夹，可能打开的是其上层文件夹
    - 解决方法：用`Vscode`打开包含`Rmd`文件的文件夹
