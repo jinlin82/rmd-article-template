@@ -108,7 +108,8 @@
    
 ### 常见错误的原因及解决方法
 
-**注意：** 1. 以下解决方法必须**重启vscode**才能发挥作用; 2. 文件路径必须**改成自己的文件路径**
+**注意：** 1. 以下解决方法必须**重启vscode**才能发挥作用; 
+2. 文件路径必须**改成自己的文件路径**; 3. 关于环境变量的操作可以参考[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95).
 
 1. Vscode 中 run task 没有出现下拉任务
 2. 找不到 bat 文件
@@ -117,7 +118,8 @@
 5. 找不到 pandoc 程序
 6. 找不到 pandoc crossref 程序
 7. 找不到 python 或其 package
-8. 出现 qt 错误， python 图形出不来
+8. 出现 QT 错误， python 图形出不来
+   - 在 `CMD` 中运行 `setenv -ua QT_QPA_PLATFORM_PLUGIN_PATH C:\Anaconda3\Library\plugins\platforms`
 9. 不能生成 pdf 和 beamer
 10. pdf 文件中中文字符乱码
 
