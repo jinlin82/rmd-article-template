@@ -3,7 +3,7 @@ title: "分析报告"
 author: "张三"
 date: "2020年3月"
 institute: 中南财经政法大学统计与数学学院
-csl: ./style/chinese-gb7714-2005-numeric.csl
+csl: ./style/chinese-gb7714-2015-numeric.csl
 css: ./style/markdown.css
 bibliography: [./Bibfile.bib]
 eqnPrefixTemplate: ($$i$$)
