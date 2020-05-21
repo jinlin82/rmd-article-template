@@ -74,10 +74,9 @@
 
 ### ~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~
 
-1. Rstudio 中运行带有中文字符的python代码出错
-2. Rstudio 自动把 `yaml header` 中的 `true` 等改成 `yes`， 导致 `pandoc-crossref` 程序出
-   错
-3. Rstudio 不能读取 `_output.yml` 中的内容
+1. Rstudio 中 Rmarkdown 文件运行带有中文字符的python代码出错
+2. Rstudio 自动把Rmarkdown 文件中 `yaml header` 中的 `true` 等改成 `yes`， 导致 `pandoc-crossref` 程序出错
+3. Rstudio 不能读取 `_output.yml` 文件中的内容
    
 ## 编译常见错误的原因及解决方法
 
