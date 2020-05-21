@@ -1,11 +1,12 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
-- [-](#-)
-    - [软件要求](#软件要求)
-    - [编译方法I：使用 Windows `发送到` 功能编译](#编译方法i：使用-windows-发送到-功能编译)
-    - [编译方法II：在 Vscode 中编译](#编译方法ii：在-vscode-中编译)
-    - [~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~](#编译方法iii：在-rstudio-中编译有bug不要使用)
+- [Rmarkdown article template](#rmarkdown-article-template)
+    - [使用方法](#使用方法)
+        - [软件要求](#软件要求)
+        - [编译方法I：使用 Windows `发送到` 功能编译](#编译方法i：使用-windows-发送到-功能编译)
+        - [编译方法II：在 Vscode 中编译](#编译方法ii：在-vscode-中编译)
+        - [~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~](#编译方法iii：在-rstudio-中编译有bug不要使用)
     - [编译常见错误的原因及解决方法](#编译常见错误的原因及解决方法)
     - [RMD-ARTICLE-TEMPLATE介绍](#rmd-article-template介绍)
         - [项目文件结构](#项目文件结构)
@@ -16,14 +17,15 @@
 
 <!-- markdown-toc end -->
 
+# Rmarkdown article template
+
 ## 使用方法
 
 **注意**: 下面操作要频繁修改增加环境变量，关于环境变量的操作可以参考[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95)
 
 ### 软件要求
 
-1. **R**：在
-   `https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe`
+1. **R**：下载地址：https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe
    下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
    根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，然后在`cmd` 中运
    行 `r` ，若不出错则安装成功。
@@ -37,7 +39,7 @@
 3. **`Anaconda`** (运行Python代码必需)：下载安装 Anaconda，网址：
    https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe
    - 安装过程中注意要选择添加到Path中选项.
-   - 安装在根目录下面，如 C:\Anaconda3 或 D:\Anaconda3 等.
+   - 安装在根目录下面，如 `C:\Anaconda3` 或 `D:\Anaconda3` 等.
 4. **`pandoc`** 程序:添加环境变量 `C:\Anaconda3\Scripts`，如果 `anaconda`装在其他盘
    将 `C` 改成相应盘；在`cmd` 中运行 `pandoc -v` ，如果没有出现错误则说明安装成
    功。
