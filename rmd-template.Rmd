@@ -32,6 +32,7 @@ options(digits=4)
 options(scipen=100)
 graphics.off()
 Sys.setlocale("LC_ALL", "Chinese")
+library(reticulate)
 ```
 
 **TODO**
@@ -60,10 +61,22 @@ plt.plot([0,1])
 
 # 使用说明
 
-输出表格
+R输出表格
 
 ```{r, results='markup'}
 knitr::kable(head(trees))
+```
+
+python 表格输出
+
+```{python, results='markup'}
+import pandas as pd
+dat=pd.DataFrame([[1,2,3],[3,4,6]])
+```
+
+
+```{r eval=T, results='markup'}
+knitr::kable(py$dat)
 ```
 
 行内公式 $\alpha+\hat{\beta}$ 。
@@ -72,7 +85,7 @@ knitr::kable(head(trees))
 
 $$\bar x = \sum_{i=1}^n x_i +\bar y$$
 
-$$X \sim N(0,1)$$
+$$X \soim  N(0,1)$$
 
 
 ## 文件结构 
