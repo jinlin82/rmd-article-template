@@ -61,41 +61,48 @@
 
 # 使用方法
 
-## 克隆项目及设置
-
-1. 克隆项目`rmd-article-template`到worktools;
-2. 将5个bat文件:`rmd-html.bat`,`rmd-doc.bat`,`rmd-pdf.bat`,`rmd-beamer.bat`,`bookdown-pdf.bat`,5个R文件:`rmd-html.R`,`rmd-doc.R`,`rmd-pdf.R`,`rmd-beamer.R`,`bookdown-pdf.R`,以及`rmdnew.bat`文件放入worktools下的bat文件夹中。
-3. 首先在bat文件夹中复制5个bat文件:`rmd-html.bat`,`rmd-doc.bat`,`rmd-pdf.bat`,`rmd-beamer.bat`,`bookdown-pdf.bat`。
-然后通过`WIN+R`组合键,打开运行窗口，输入`shell:sendto`后回车,进入文件夹`C:\Users\电脑用户名\AppData\Roaming\Microsoft\Windows\SendTo`;
-右键点击Sendto文件夹空白处，选择'粘贴快捷方式',将复制好的5个bat文件以快捷方式的方式放到SendTo文件夹。
-最后找到项目的rmd文件，点击右键后选择发送到相应的bat文件,即可生成相应格式的文档。
-   
-**注**：以上步骤完成有两个确保，即Ｒ程序环境变量
-(`C:\Worktools\R\R-3.5.1\bin\x64`)和worktools的bat文件环境变量
-(`C:\Worktools\bat`)都要设置成功。
-
-## RMD文件在 Vscode 中编译步骤
-
 **注意**: 下面操作要频繁修改增加环境变量，关于环境变量的操作可以参考[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95)
 
-### 软件要求
-1. `pandoc`:下载并安装 `anaconda`，安装时勾选那两个添加环境变量的选项，并且添加
-   环境变量 `C:\Anaconda3\Scripts`，如果 `anaconda`装在其他盘将 `C` 改成相应盘；
-   在`cmd` 中运行 `pandoc -v` ，如果没有出现错误则说明安装成功。
-2. R：在
+## 软件要求
+
+1. **R**：在
    `https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe`
    下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
    根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，然后在`cmd` 中运
    行 `r` ，若不出错则安装成功。
-3. R packages: 在 `cmd` 中运行 `R`后再分别运行 `install.packages('knitr')` ，
+2. **R packages**: 
+   - 在 `cmd` 中运行 `R`后再分别运行 `install.packages('knitr')` ，
    `install.packages('rmarkdown')` ，`install.packages('bookdown')` ，
-   `install.packages('reticulate')` 四条代码，运行成功之后再分别运行
+   `install.packages('reticulate')` 四条代码，
+   - 运行成功之后再分别运行
    `library(knitr)` ， `library(rmarkdown)` ，`library(bookdown)`，
    `library(reticulate)` ，如果都加载成功说明已安装好。
-4. 在生成 `html` 文件时，要把自己写的 `rmd` 文件与 `rmd-html.bat` ，`rmd-html.R`
-   两个文件放在同一个文件夹。
+3. **`Anaconda`** (运行Python代码必需)：下载安装 Anaconda，网址：
+   https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe
+   - 安装过程中注意要选择添加到Path中选项.
+   - 安装在根目录下面，如 C:\Anaconda3 或 D:\Anaconda3 等.
+4. **`pandoc`** 程序:添加环境变量 `C:\Anaconda3\Scripts`，如果 `anaconda`装在其他盘
+   将 `C` 改成相应盘；在`cmd` 中运行 `pandoc -v` ，如果没有出现错误则说明安装成
+   功。
+5. **`pandoc-crossref`** 程序： 下载地址：(
+     https://pan.baidu.com/s/1mvRjqJKboirDaaR0icrNRQ 提取码：q7en)  解压后把
+     `pandoc-crossref.exe` 放入到和 上面第4步中的`pandoc.exe` 同一文件夹中
+6. **`Latex`** (生成pdf和beamer必需)： 可安装 `TexLive`(安装文件3.3G，安装需要约6G空间)，
+     下载地址：https://pan.baidu.com/s/13Gisi-BYGn-p-FoWrbAYyg 提取码：v8tr 
 
-### 操作步骤
+## 编译方法I：使用 Windows 发送到功能编译 
+
+1. 克隆项目`rmd-article-template`到某文件夹（注意路径中不能有空格，特殊字符）;
+2. 首先复制项目中4个bat文件:`rmd-html.bat`,`rmd-doc.bat`,`rmd-pdf.bat`,`rmd-beamer.bat`。
+3. 然后通过`WIN+R`组合键,打开运行窗口，输入`shell:sendto`后回车,进入文件夹`C:\Users\电脑用户名\AppData\Roaming\Microsoft\Windows\SendTo`;
+4. 右键点击Sendto文件夹空白处，选择'粘贴快捷方式',将复制好的5个bat文件以快捷方式的方式放到SendTo文件夹。
+5. 最后找到项目的 `rmd-template.RMD` 文件，点击右键后选择发送到相应的bat文件,即可生成相应格式的文档。
+
+
+## 编译方法II：在 Vscode 中编译步骤
+
+**注意**: 必需使用配置好的 Vscode 版本才能编译，下载地址：链接：https://pan.baidu.com/s/1qf3rmdqk3COdGPA7D312PA 提取码： 5fq3
+
 1. 右键点击需要的文件夹，选择 `Open Folder as VS Code Project` 来打开，没有配置
    好的，可以直接打开Vscode，点击左上角的`文件(F)`，然后选择`打开文件夹`，找到需
    要的文件夹，点击`选择文件夹`即可打开为VSCode项目。可以根据vscode底部颜色来判
@@ -106,11 +113,11 @@
    Run Task`，然后点击`rmd-html`即可生成html文件。选择`rmd-pdf`生成pdf文件，选择
    `rmd-beamer`和`rmd-pdf`生成pdf文件，选择`rmd-doc`生成word文档。
    
-### 常见错误的原因及解决方法
+# 编译常见错误的原因及解决方法
 
 **常见错误**
 1. `Vscode` 中运行 `run task` 没有出现下拉任务
-2. 找不到 `bat` 文件
+2. `Vscode` 中找不到 `bat` 文件
 3. 找不到 `Rscript` 程序
 4. 找不到 `knitr` 等包
 5. 找不到 `pandoc` 程序
@@ -168,14 +175,15 @@
 9. 不能生成 `pdf` 和 `beamer`
    - 原因： 没有安装 `latex` 软件或者没有加入环境变量
    - 测试方法： `CMD` 中输入 `xelatex` 没有出现错误则表明 `latex` 设置成功
-   - 解决方法： 安装最新版 `Latex` 发行版并加入到 `PATH` 环境变量中，可安装
-     `TexLive`(安装文件3.3G，安装需要约6G空间)，
-     下载地址：https://mirrors.tuna.tsinghua.edu.cn/ctan/systems/texlive/Images/texlive2019.iso
+   - 解决方法： 安装最新版 `Latex` 发行版并加入到 `PATH` 环境变量中，见上面软件要求
+     第6步
 10. `pdf` 文件中中文字符乱码
 	- 原因： 可能字体问题或 `Latex` 不是新版原因
 	- 解决方法：安装新版 `Latex`，如上面`TexLive`
 
-### 如何运行 Rmarkdown 中的 python 代码
+# 编辑修改方法
+
+## 如何运行 Rmarkdown 中的 python 代码
 1. 按`ctrl+K M`,在上方弹出的框中输入`python`,然后回车或者点击下方出现的`python`
    栏，就切换到了python语言模式，光标放在python代码块所在的行，按`shift+enter`,
    即可运行该行python代码。
@@ -184,7 +192,7 @@
    Rmarkdown语言模式。 
 
 
-# rmd-template.rmd相关说明
+## rmd-template.rmd相关说明
 
 1. rmd-template.rmd文档名称`rmd-template`可自行修改
 2. 在rmd-template.rmd中,`title`,`author`,`date`,`institute`冒号后的内容可自行修改。
@@ -196,7 +204,7 @@
    [//]: # (\bibliography{Bibfile})
    ```
 
-# rmd生成幻灯片beamer内容相关说明
+## rmd生成幻灯片beamer内容相关说明
 
 1. 选择`rmd-beamer`生成了5个文件，分别是`rmd-template_beamer.pdf`、`rmd-template_beamer.log`、`rmd-template_beamer.tex`、`rmd-template.py`、`rmd-template.R`,其中`rmd-template_beamer.pdf`是我们所需要的幻灯片内容。
 2. 在rmd-template.rmd中,`institute: 中南财经政法大学统计与数学学院`只在幻灯片中显示。`classoption: "aspectratio=1610"`，1610 是幻灯片的长宽比例，有1610,169,43等选择，调整幻灯片长宽。
