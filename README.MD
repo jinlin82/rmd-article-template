@@ -25,10 +25,12 @@
 
 ### 软件要求
 
-1. **R**：下载地址：https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe
-   下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
-   根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，然后在`cmd` 中运
-   行 `r` ，若不出错则安装成功。
+1. **R**：
+   - 下载地址：
+     https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe
+   - 下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
+	  根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，
+   - 然后在`cmd` 中运行 `r` ，若不出错则安装成功。
 2. **R packages**: 
    - 在 `cmd` 中运行 `R`后再分别运行 `install.packages('knitr')` ，
    `install.packages('rmarkdown')` ，`install.packages('bookdown')` ，
@@ -36,8 +38,9 @@
    - 运行成功之后再分别运行
    `library(knitr)` ， `library(rmarkdown)` ，`library(bookdown)`，
    `library(reticulate)` ，如果都加载成功说明已安装好。
-3. **`Anaconda`** (运行Python代码必需)：下载安装 Anaconda，网址：
-   https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe
+3. **`Anaconda`** (运行Python代码必需)：
+   - 下载安装 Anaconda，网址：
+	  https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe
    - 安装过程中注意要选择添加到Path中选项.
    - 安装在根目录下面，如 `C:\Anaconda3` 或 `D:\Anaconda3` 等.
 4. **`pandoc`** 程序:
@@ -50,7 +53,8 @@
    - 解压后把 `pandoc-crossref.exe` 放入到和 上面第4步中的 `pandoc.exe` 同一文件夹中
 6. **`Latex`** (生成pdf和beamer必需)： 
    - 可安装 `TexLive`(安装文件3.3G，安装需要约6G空间)，
-   - 下载地址：https://pan.baidu.com/s/13Gisi-BYGn-p-FoWrbAYyg 提取码：v8tr 
+   - 下载地址：https://pan.baidu.com/s/13Gisi-BYGn-p-FoWrbAYyg 提取码：v8tr
+   - 下载后直接解压，把文件夹 `C:\texlive\2019\bin\win32` 添加到环境变量 
 
 ### 编译方法I：使用 Windows `发送到` 功能编译
 
