@@ -1,10 +1,11 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
+- [-](#-)
     - [软件要求](#软件要求)
     - [编译方法I：使用 Windows `发送到` 功能编译](#编译方法i：使用-windows-发送到-功能编译)
     - [编译方法II：在 Vscode 中编译](#编译方法ii：在-vscode-中编译)
-    - [编译方法III：在 Rstudio 中编译（**有bug，不要使用**）](#编译方法iii：在-rstudio-中编译有bug不要使用)
+    - [~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~](#编译方法iii：在-rstudio-中编译有bug不要使用)
     - [编译常见错误的原因及解决方法](#编译常见错误的原因及解决方法)
     - [RMD-ARTICLE-TEMPLATE介绍](#rmd-article-template介绍)
         - [项目文件结构](#项目文件结构)
@@ -69,7 +70,7 @@
    Run Task`，然后点击`rmd-html`即可生成html文件。选择`rmd-pdf`生成pdf文件，选择
    `rmd-beamer`和`rmd-pdf`生成pdf文件，选择`rmd-doc`生成word文档。
 
-### 编译方法III：在 Rstudio 中编译（**有bug，不要使用**）
+### ~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~
 
 1. Rstudio 中运行带有中文字符的python代码出错
 2. Rstudio 自动把 `yaml header` 中的 `true` 等改成 `yes`， 导致 `pandoc-crossref` 程序出
