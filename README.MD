@@ -40,9 +40,10 @@
    https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe
    - 安装过程中注意要选择添加到Path中选项.
    - 安装在根目录下面，如 `C:\Anaconda3` 或 `D:\Anaconda3` 等.
-4. **`pandoc`** 程序:添加环境变量 `C:\Anaconda3\Scripts`，如果 `anaconda`装在其他盘
-   将 `C` 改成相应盘；在`cmd` 中运行 `pandoc -v` ，如果没有出现错误则说明安装成
-   功。
+4. **`pandoc`** 程序:如果已经安装Anaconda，则pandoc程序在 `C:\Anaconda3\Scripts`
+   文件夹中，添加环境变量 `C:\Anaconda3\Scripts`即可，如果
+   `anaconda`装在其他盘将 `C` 改成相应盘；在`cmd` 中运行 `pandoc -v` ，如果没有
+   出现错误则说明安装成功。
 5. **`pandoc-crossref`** 程序： 下载地址：(
      https://pan.baidu.com/s/1mvRjqJKboirDaaR0icrNRQ 提取码：q7en)  解压后把
      `pandoc-crossref.exe` 放入到和 上面第4步中的`pandoc.exe` 同一文件夹中
