@@ -85,7 +85,7 @@ knitr::kable(py$dat)
 
 $$\bar x = \sum_{i=1}^n x_i +\bar y$$
 
-$$X \soim  N(0,1)$$
+$$X \sim  N(0,1)$$
 
 
 ## 文件结构 

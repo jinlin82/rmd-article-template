@@ -1,63 +1,19 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
+- [使用方法](#使用方法)
+    - [软件要求](#软件要求)
+    - [编译方法I：使用 Windows 发送到功能编译](#编译方法i：使用-windows-发送到功能编译)
+    - [编译方法II：在 Vscode 中编译步骤](#编译方法ii：在-vscode-中编译步骤)
+- [编译常见错误的原因及解决方法](#编译常见错误的原因及解决方法)
 - [RMD-ARTICLE-TEMPLATE介绍](#rmd-article-template介绍)
     - [项目文件结构](#项目文件结构)
-- [使用方法](#使用方法)
-    - [克隆项目及设置](#克隆项目及设置)
-    - [RMD文件在 Vscode 中编译步骤](#rmd文件在-vscode-中编译步骤)
-        - [软件要求](#软件要求)
-        - [操作步骤](#操作步骤)
-        - [常见错误的原因及解决方法](#常见错误的原因及解决方法)
-        - [如何运行 Rmarkdown 中的 python 代码](#如何运行-rmarkdown-中的-python-代码)
-- [rmd-template.rmd相关说明](#rmd-templatermd相关说明)
-- [rmd生成幻灯片beamer内容相关说明](#rmd生成幻灯片beamer内容相关说明)
+- [编辑修改方法](#编辑修改方法)
+    - [如何运行 Rmarkdown 中的 python 代码](#如何运行-rmarkdown-中的-python-代码)
+    - [rmd-template.rmd相关说明](#rmd-templatermd相关说明)
+    - [rmd生成幻灯片beamer内容相关说明](#rmd生成幻灯片beamer内容相关说明)
 
 <!-- markdown-toc end -->
-
-
-# RMD-ARTICLE-TEMPLATE介绍
-## 项目文件结构
-
-该项目是一个论文模板,其主要文件结构为
-
-```
-\---rmd-article-template
-    |   beamer-header.tex
-    |   Bibfile.bib
-    |   rmd-template.Rmd
-    |   znufelogo.jpg
-    |   _bookdown.yml
-    |   _output.yml
-    +---codes
-    +---data
-    +---results
-    \---style
-            beamer-template.tex
-            bookdown-pdf-template.tex
-            chinese-gb7714-2005-numeric.csl
-            default-1.17.0.2.tex
-            gbt7714-plain-zuel.bst
-            markdown.css
-            word-styles-01.docx
-            word-styles-02.docx
-```
-
-共包含4个子文件夹,分别是`codes`,`data`,`results`,`style`和
-其余6个文档,分别是
-`_bookdown.yml`,`_outout.yml`,`bermer-header.tex`,`Bibfile.bib`,`rmd-template.Rmd`,`znufelogo.jpg`。
-这10个部分是必不可少的,具体使用时视情况增加所需文件。下面对这10个部分逐一做简单介绍。
-
-1. `codes`是用来放置论文中用来处理模型计算的代码;
-2. `data`用来放置论文写作所需的原始数据;
-3. `results`用来放置论文写作过程所生成的图和表;
-4. `style`部分还包括几个用来控制论文生成格式的子文件,如参考文献格式,word文档生成格式等;
-5. `_bookdown.yml`是`bookdown`文档中相关字符的说明;
-6. `_outout.yml`是文档转换格式`html`,`doc`,`pdf`,`bookdown`,`beamer幻灯片` 时涉及pandoc和tex的具体设置,是配置文件;
-7. `bermer-header.tex`是生成幻灯片时,对作者,邮箱以及logo的设置;
-8. `Bibfile.bib`文件放置了用`Jabref`整理的固定格式的参考文献文本文档;
-9. `rmd-template.Rmd`是论文正文部分;
-10. `znufelogo.jpg`即生成幻灯片时的Logo。
 
 # 使用方法
 
@@ -180,6 +136,49 @@
 10. `pdf` 文件中中文字符乱码
 	- 原因： 可能字体问题或 `Latex` 不是新版原因
 	- 解决方法：安装新版 `Latex`，如上面`TexLive`
+	
+# RMD-ARTICLE-TEMPLATE介绍
+## 项目文件结构
+
+该项目是一个论文模板,其主要文件结构为
+
+```
+\---rmd-article-template
+    |   beamer-header.tex
+    |   Bibfile.bib
+    |   rmd-template.Rmd
+    |   znufelogo.jpg
+    |   _bookdown.yml
+    |   _output.yml
+    +---codes
+    +---data
+    +---results
+    \---style
+            beamer-template.tex
+            bookdown-pdf-template.tex
+            chinese-gb7714-2005-numeric.csl
+            default-1.17.0.2.tex
+            gbt7714-plain-zuel.bst
+            markdown.css
+            word-styles-01.docx
+            word-styles-02.docx
+```
+
+共包含4个子文件夹,分别是`codes`,`data`,`results`,`style`和
+其余6个文档,分别是
+`_bookdown.yml`,`_outout.yml`,`bermer-header.tex`,`Bibfile.bib`,`rmd-template.Rmd`,`znufelogo.jpg`。
+这10个部分是必不可少的,具体使用时视情况增加所需文件。下面对这10个部分逐一做简单介绍。
+
+1. `codes`是用来放置论文中用来处理模型计算的代码;
+2. `data`用来放置论文写作所需的原始数据;
+3. `results`用来放置论文写作过程所生成的图和表;
+4. `style`部分还包括几个用来控制论文生成格式的子文件,如参考文献格式,word文档生成格式等;
+5. `_bookdown.yml`是`bookdown`文档中相关字符的说明;
+6. `_outout.yml`是文档转换格式`html`,`doc`,`pdf`,`bookdown`,`beamer幻灯片` 时涉及pandoc和tex的具体设置,是配置文件;
+7. `bermer-header.tex`是生成幻灯片时,对作者,邮箱以及logo的设置;
+8. `Bibfile.bib`文件放置了用`Jabref`整理的固定格式的参考文献文本文档;
+9. `rmd-template.Rmd`是论文正文部分;
+10. `znufelogo.jpg`即生成幻灯片时的Logo。
 
 # 编辑修改方法
 
