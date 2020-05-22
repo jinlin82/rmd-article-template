@@ -1,31 +1,36 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
-- [使用方法](#使用方法)
-    - [软件要求](#软件要求)
-    - [编译方法I：使用 Windows 发送到功能编译](#编译方法i：使用-windows-发送到功能编译)
-    - [编译方法II：在 Vscode 中编译步骤](#编译方法ii：在-vscode-中编译步骤)
-- [编译常见错误的原因及解决方法](#编译常见错误的原因及解决方法)
-- [RMD-ARTICLE-TEMPLATE介绍](#rmd-article-template介绍)
-    - [项目文件结构](#项目文件结构)
-- [编辑修改方法](#编辑修改方法)
-    - [如何运行 Rmarkdown 中的 python 代码](#如何运行-rmarkdown-中的-python-代码)
-    - [rmd-template.rmd相关说明](#rmd-templatermd相关说明)
-    - [rmd生成幻灯片beamer内容相关说明](#rmd生成幻灯片beamer内容相关说明)
+- [Rmarkdown article template](#rmarkdown-article-template)
+    - [使用方法](#使用方法)
+        - [软件要求](#软件要求)
+        - [编译方法I：使用 Windows `发送到` 功能编译](#编译方法i：使用-windows-发送到-功能编译)
+        - [编译方法II：在 Vscode 中编译](#编译方法ii：在-vscode-中编译)
+        - [~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~](#编译方法iii：在-rstudio-中编译有bug不要使用)
+    - [编译常见错误的原因及解决方法](#编译常见错误的原因及解决方法)
+    - [RMD-ARTICLE-TEMPLATE介绍](#rmd-article-template介绍)
+        - [项目文件结构](#项目文件结构)
+    - [编辑修改方法](#编辑修改方法)
+        - [如何运行 Rmarkdown 中的 python 代码](#如何运行-rmarkdown-中的-python-代码)
+        - [rmd-template.rmd相关说明](#rmd-templatermd相关说明)
+        - [rmd生成幻灯片beamer内容相关说明](#rmd生成幻灯片beamer内容相关说明)
 
 <!-- markdown-toc end -->
 
-# 使用方法
+# Rmarkdown article template
+
+## 使用方法
 
 **注意**: 下面操作要频繁修改增加环境变量，关于环境变量的操作可以参考[这里](https://github.com/jinlin82/Rmarkdown-writing/blob/master/README.md#windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95)
 
-## 软件要求
+### 软件要求
 
-1. **R**：在
-   `https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe`
-   下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
-   根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，然后在`cmd` 中运
-   行 `r` ，若不出错则安装成功。
+1. **R**：
+   - 下载地址：
+     https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/old/3.5.3/R-3.5.3-win.exe
+   - 下载 `R` ，安装之后设置环境变量如 `C:\Worktools\R\R-3.5.3\bin\x64` ，具体路径
+	  根据自己安装位置确定，必须要添加 `R` 安装文件的 `\bin\x64` ，
+   - 然后在`cmd` 中运行 `r` ，若不出错则安装成功。
 2. **R packages**: 
    - 在 `cmd` 中运行 `R`后再分别运行 `install.packages('knitr')` ，
    `install.packages('rmarkdown')` ，`install.packages('bookdown')` ，
@@ -33,43 +38,54 @@
    - 运行成功之后再分别运行
    `library(knitr)` ， `library(rmarkdown)` ，`library(bookdown)`，
    `library(reticulate)` ，如果都加载成功说明已安装好。
-3. **`Anaconda`** (运行Python代码必需)：下载安装 Anaconda，网址：
-   https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe
+3. **`Anaconda`** (运行Python代码必需)：
+   - 下载安装 Anaconda，网址：
+	  https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe
    - 安装过程中注意要选择添加到Path中选项.
-   - 安装在根目录下面，如 C:\Anaconda3 或 D:\Anaconda3 等.
-4. **`pandoc`** 程序:添加环境变量 `C:\Anaconda3\Scripts`，如果 `anaconda`装在其他盘
-   将 `C` 改成相应盘；在`cmd` 中运行 `pandoc -v` ，如果没有出现错误则说明安装成
-   功。
-5. **`pandoc-crossref`** 程序： 下载地址：(
-     https://pan.baidu.com/s/1mvRjqJKboirDaaR0icrNRQ 提取码：q7en)  解压后把
-     `pandoc-crossref.exe` 放入到和 上面第4步中的`pandoc.exe` 同一文件夹中
-6. **`Latex`** (生成pdf和beamer必需)： 可安装 `TexLive`(安装文件3.3G，安装需要约6G空间)，
-     下载地址：https://pan.baidu.com/s/13Gisi-BYGn-p-FoWrbAYyg 提取码：v8tr 
+   - 安装在根目录下面，如 `C:\Anaconda3` 或 `D:\Anaconda3` 等.
+4. **`pandoc`** 程序:
+   - 如果已经安装Anaconda，则pandoc程序在 `C:\Anaconda3\Scripts` 文件夹中， 
+   - 添加环境变量 `C:\Anaconda3\Scripts`即可，如果 `anaconda`装在其他盘将 `C` 改
+     成相应盘；
+   - 在`cmd` 中运行 `pandoc -v` ，如果没有出现错误则说明安装成功。
+5. **`pandoc-crossref`** 程序： 
+   - 下载地址：(https://pan.baidu.com/s/1mvRjqJKboirDaaR0icrNRQ 提取码：q7en)
+   - 解压后把 `pandoc-crossref.exe` 放入到和 上面第4步中的 `pandoc.exe` 同一文件夹中
+6. **`Latex`** (生成pdf和beamer必需)： 
+   - 可安装 `TexLive`(安装文件3.3G，安装需要约6G空间)，
+   - 下载地址：https://pan.baidu.com/s/13Gisi-BYGn-p-FoWrbAYyg 提取码：v8tr
+   - 下载后直接解压，把文件夹 `C:\texlive\2019\bin\win32` 添加到环境变量 
 
-## 编译方法I：使用 Windows 发送到功能编译 
+### 编译方法I：使用 Windows `发送到` 功能编译
 
 1. 克隆项目`rmd-article-template`到某文件夹（注意路径中不能有空格，特殊字符）;
 2. 首先复制项目中4个bat文件:`rmd-html.bat`,`rmd-doc.bat`,`rmd-pdf.bat`,`rmd-beamer.bat`。
 3. 然后通过`WIN+R`组合键,打开运行窗口，输入`shell:sendto`后回车,进入文件夹`C:\Users\电脑用户名\AppData\Roaming\Microsoft\Windows\SendTo`;
-4. 右键点击Sendto文件夹空白处，选择'粘贴快捷方式',将复制好的5个bat文件以快捷方式的方式放到SendTo文件夹。
+4. 右键点击Sendto文件夹空白处，选择'粘贴快捷方式',将复制好的4个bat文件以快捷方式的方式放到SendTo文件夹。
 5. 最后找到项目的 `rmd-template.RMD` 文件，点击右键后选择发送到相应的bat文件,即可生成相应格式的文档。
 
 
-## 编译方法II：在 Vscode 中编译步骤
+### 编译方法II：在 Vscode 中编译
 
 **注意**: 必需使用配置好的 Vscode 版本才能编译，下载地址：链接：https://pan.baidu.com/s/1qf3rmdqk3COdGPA7D312PA 提取码： 5fq3
 
-1. 右键点击需要的文件夹，选择 `Open Folder as VS Code Project` 来打开，没有配置
-   好的，可以直接打开Vscode，点击左上角的`文件(F)`，然后选择`打开文件夹`，找到需
-   要的文件夹，点击`选择文件夹`即可打开为VSCode项目。可以根据vscode底部颜色来判
-   断打开的是不是文件夹，若底部为浅蓝色，则表明打开的是文件夹，若底部为紫色，则
-   打开的是单个文件，不能生成html，需要按照上面的步骤打开文件夹才能生成html。
+1. 右键点击克隆的项目文件夹，选择 `Open Folder as VS Code Project` 来打开，没有
+   配置好的，可以直接打开Vscode，点击左上角菜单的`文件(F)`，然后选择`打开文件夹`，
+   找到需要的文件夹，点击`选择文件夹`即可打开为VSCode项目。可以根据vscode底部颜
+   色来判断打开的是不是文件夹，若底部为浅蓝色，则表明打开的是文件夹，若底部为紫
+   色，则打开的是单个文件，不能编译，需要按照上面的步骤打开文件夹才能编译。
 
 2. 在打开的rmd文件中按下快捷键`Ctrl+Shift+P`，输入 `run task`，选择第1条`Tasks：
    Run Task`，然后点击`rmd-html`即可生成html文件。选择`rmd-pdf`生成pdf文件，选择
    `rmd-beamer`和`rmd-pdf`生成pdf文件，选择`rmd-doc`生成word文档。
+
+### ~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~
+
+1. Rstudio 中 Rmarkdown 文件运行带有中文字符的python代码出错
+2. Rstudio 自动把Rmarkdown 文件中 `yaml header` 中的 `true` 等改成 `yes`， 导致 `pandoc-crossref` 程序出错
+3. Rstudio 不能读取 `_output.yml` 文件中的内容
    
-# 编译常见错误的原因及解决方法
+## 编译常见错误的原因及解决方法
 
 **常见错误**
 1. `Vscode` 中运行 `run task` 没有出现下拉任务
@@ -180,9 +196,8 @@
 9. `rmd-template.Rmd`是论文正文部分;
 10. `znufelogo.jpg`即生成幻灯片时的Logo。
 
-# 编辑修改方法
+### 如何运行 Rmarkdown 中的 python 代码
 
-## 如何运行 Rmarkdown 中的 python 代码
 1. 按`ctrl+K M`,在上方弹出的框中输入`python`,然后回车或者点击下方出现的`python`
    栏，就切换到了python语言模式，光标放在python代码块所在的行，按`shift+enter`,
    即可运行该行python代码。
@@ -191,7 +206,7 @@
    Rmarkdown语言模式。 
 
 
-## rmd-template.rmd相关说明
+### rmd-template.rmd相关说明
 
 1. rmd-template.rmd文档名称`rmd-template`可自行修改
 2. 在rmd-template.rmd中,`title`,`author`,`date`,`institute`冒号后的内容可自行修改。
@@ -203,7 +218,7 @@
    [//]: # (\bibliography{Bibfile})
    ```
 
-## rmd生成幻灯片beamer内容相关说明
+### rmd生成幻灯片beamer内容相关说明
 
 1. 选择`rmd-beamer`生成了5个文件，分别是`rmd-template_beamer.pdf`、`rmd-template_beamer.log`、`rmd-template_beamer.tex`、`rmd-template.py`、`rmd-template.R`,其中`rmd-template_beamer.pdf`是我们所需要的幻灯片内容。
 2. 在rmd-template.rmd中,`institute: 中南财经政法大学统计与数学学院`只在幻灯片中显示。`classoption: "aspectratio=1610"`，1610 是幻灯片的长宽比例，有1610,169,43等选择，调整幻灯片长宽。
