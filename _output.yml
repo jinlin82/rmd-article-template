@@ -54,7 +54,7 @@ powerpoint_presentation:
   pandoc_args:
   - --filter
   - pandoc-crossref
-  #reference_doc: ./style/stat.pptx
+  reference_doc: ./style/pptx-template-1.pptx
 bookdown::gitbook:
   css: style.css
   md_extensions: +east_asian_line_breaks
