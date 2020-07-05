@@ -47,6 +47,14 @@ beamer_presentation:
   template: ./style/beamer-template.tex
   includes:
     #in_header: ./beamer-header.tex
+powerpoint_presentation:
+  slide_level: 3
+  fig_caption: true
+  md_extensions: +east_asian_line_breaks
+  pandoc_args:
+  - --filter
+  - pandoc-crossref
+  #reference_doc: ./style/stat.pptx
 bookdown::gitbook:
   css: style.css
   md_extensions: +east_asian_line_breaks
