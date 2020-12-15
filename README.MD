@@ -232,6 +232,6 @@
 1. markdown 中用 `^[脚注内容]` 来增加脚注
 2. 正文中的脚注所有输出格式都支持
 3. title 和 author 中的脚注 docx 和 html默认支持，article 和 bookdown 中由于使用
-   了 `titling.sty` ，需要对 `titling.sty` 进行 HACK 才可以支持， beamer 中不能
+   了 `titling.sty` ，需要 HACK `titling.sty` 才可以支持， beamer 中不能
    支持，只能在 `YAML` 中使用 `thanks` 来支持.
 
