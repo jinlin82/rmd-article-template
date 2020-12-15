@@ -40,11 +40,17 @@ library(reticulate)
 - [x] 表格如何输出
 - [ ] Bib文件如何整理
 
-R代码
+# 简介
+
+### R 代码
+
+R代码 ^[脚注内容]
 
 ```{r, results='markup'}
 2+3
 ```
+
+### Python 代码
 
 python代码
 
