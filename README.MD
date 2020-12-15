@@ -227,3 +227,11 @@
    - 修改邮箱：打开`beamer-header.tex`,第一行将两个`某某`修改为文章作者名,将`xxxx@zuel.edu.cn`修改为自己的邮箱
    - 打开`_output.yml`,第47行取消注释`in_header: ./beamer-header.tex`。
    - 做出以上修改后，运行`rmd-beamer`,生成的幻灯片中邮箱和图标logo已经修改。
+   
+### footnote 相关问题
+1. markdown 中用 `^[脚注内容]` 来增加脚注
+2. 正文中的脚注所有输出格式都支持
+3. title 和 author 中的脚注 docx 和 html默认支持，article 和 bookdown 中由于使用
+   了 `titling.sty` ，需要对 `titling.sty` 进行 HACK 才可以支持， beamer 中不能
+   支持，只能在 `YAML` 中使用 `thanks` 来支持.
+
