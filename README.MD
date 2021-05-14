@@ -81,7 +81,8 @@
 
 ### ~~编译方法III：在 Rstudio 中编译（**有bug，不要使用**）~~
 
-1. Rstudio 中 Rmarkdown 文件运行带有中文字符的python代码出错
+1. Rstudio 中 Rmarkdown 文件运行带有中文字符的python代码出错,(RStudio-1.4.1711已
+   fix此bug)
 2. Rstudio 自动把Rmarkdown 文件中 `yaml header` 中的 `true` 等改成 `yes`， 导致 `pandoc-crossref` 程序出错
 3. Rstudio 不能读取 `_output.yml` 文件中的内容
    
