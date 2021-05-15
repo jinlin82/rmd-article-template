@@ -26,7 +26,7 @@ knitr::opts_chunk$set(fig.align="center"
                       )
 ```
 
-```{r prepare, echo=F, purl=F}
+```{r prepare, echo=F, purl=F, results = 'hide'}
 rm(list=ls())
 options(digits=4)
 options(scipen=100)
