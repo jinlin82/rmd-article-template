@@ -9,7 +9,7 @@ bibliography: [./Bibfile.bib]
 eqnPrefixTemplate: ($$i$$)
 link-citations: true
 linkReferences: true
-chapters: true
+chapters: false
 tableEqns: false
 autoEqnLabels: false
 classoption: "aspectratio=1610"
@@ -17,16 +17,16 @@ classoption: "aspectratio=1610"
 
 ```{r setup, echo=F, purl=F}
 knitr::opts_knit$set(root.dir = getwd())
-knitr::opts_chunk$set(echo = TRUE, results = 'hide')
+knitr::opts_chunk$set(echo = FALSE, results = 'hide')
 knitr::opts_chunk$set(warning = FALSE, message=FALSE)
 knitr::opts_chunk$set(fig.align="center"
                       ## ,out.width="0.9\\textwidth" # latex
-                      ,out.width="80%" # for both latex and html
+                      ,out.width="70%" # for both latex and html
                       ,fig.width=5, fig.height=3
                       )
 ```
 
-```{r prepare, echo=F, purl=F}
+```{r prepare, echo=F, purl=F, results = 'hide'}
 rm(list=ls())
 options(digits=4)
 options(scipen=100)
@@ -50,6 +50,9 @@ R代码 ^[脚注内容]
 2+3
 ```
 
+$$\bar x = \sum_{i=1}^n x_i +\bar y$${#eq:rt0}
+
+
 ### Python 代码
 
 python代码
@@ -60,19 +63,38 @@ python代码
 
 python图形
 
-```{python}
+```{python, fig.cap="统计图"}
 import matplotlib.pyplot as plt
 plt.plot([0,1])
 ```
 
 # 使用说明
 
+
 R输出表格
 
 ```{r, results='markup'}
-knitr::kable(head(trees))
+knitr::kable(head(trees), caption = "数据")
 ```
 
+___
+
+行内公式 $\alpha+\hat{\beta}$ 。
+
+行间公式
+
+$$\bar x = \sum_{i=1}^n x_i +\bar y$${#eq:rt}
+
+$$X \sim  N(0,1)$$
+
+
+## 文件结构 
+
+## 使用方法
+
+# 结论
+
+### Python 表格输出
 python 表格输出
 
 ```{python, results='markup'}
@@ -81,21 +103,8 @@ dat=pd.DataFrame([['中文',2,3],['英文',4,6]])
 ```
 
 ```{r eval=T, results='markup'}
-knitr::kable(py$dat)
+knitr::kable(py$dat, caption = "python 表格")
 ```
-
-行内公式 $\alpha+\hat{\beta}$ 。
-
-行间公式
-
-$$\bar x = \sum_{i=1}^n x_i +\bar y$$
-
-$$X \sim  N(0,1)$$
-
-
-## 文件结构 
-
-## 使用方法
 
 # 参考文献
 [//]: # (\bibliography{Bibfile})
