@@ -27,6 +27,7 @@ slidy_presentation:
 bookdown::word_document2:
   fig_caption: true
   md_extensions: +east_asian_line_breaks
+  number_sections: false  
   pandoc_args:
   - --filter
   - pandoc-crossref
