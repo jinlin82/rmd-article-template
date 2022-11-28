@@ -50,7 +50,8 @@ R代码
 2+3
 ```
 
-$$\bar x = \sum_{i=1}^n x_i +\bar y$${\#eq:rt0}
+$$\bar x = \sum_{i=1}^n x_i +\bar y
+$${\#eq:rt0}
 
 ### Python 代码
 
@@ -81,11 +82,20 @@ knitr::kable(head(trees), caption = "数据", booktabs=T)
 
 行间公式
 
-$$\bar x = \sum_{i=1}^n x_i +\bar y$${\#eq:rt}
+$$\bar x = \sum_{i=1}^n x_i +\bar y
+$${\#eq:rt}
 
 $$X \sim  N(0,1)$$
 
 ## 文件结构
+
+$$
+y = \left\{ \begin{array}{ll}
+a & \textrm{if $d>c$}\\
+b+x & \textrm{in the morning}\\
+l & \textrm{all day long}
+\end{array} \right.
+$$
 
 ## 使用方法
 
